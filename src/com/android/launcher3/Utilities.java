@@ -135,6 +135,8 @@ public final class Utilities {
     public static final String ICON_SIZE = "pref_custom_icon_size";
     public static final String FONT_SIZE = "pref_custom_font_size";
 
+    public static final String KEY_SHOW_SEARCHBAR = "pref_show_searchbar";
+
     /**
      * Indicates if the device has a debug build. Should only be used to store additional info or
      * add extra logging and not for changing the app behavior.
@@ -725,5 +727,10 @@ public final class Utilities {
         (new Handler(MODEL_EXECUTOR.getLooper())).postDelayed(() -> {
             android.os.Process.killProcess(android.os.Process.myPid());
         }, WAIT_BEFORE_RESTART);
+    }
+
+    public static boolean showQSB(Context context) {
+        SharedPreferences prefs = getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(KEY_SHOW_SEARCHBAR, true);
     }
 }

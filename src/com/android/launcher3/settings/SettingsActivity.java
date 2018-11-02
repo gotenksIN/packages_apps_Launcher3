@@ -169,6 +169,7 @@ public class SettingsActivity extends FragmentActivity
         protected static final String DPS_PACKAGE = "com.google.android.as";
 
         private Preference mShowGoogleAppPref;
+        private Preference mSearchBar;
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -315,6 +316,16 @@ public class SettingsActivity extends FragmentActivity
                     final CustomSeekBarPreference fontSizes = (CustomSeekBarPreference)
                             findPreference(Utilities.FONT_SIZE);
                     fontSizes.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                        public boolean onPreferenceChange(Preference preference, Object newValue) {
+                            LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+                            return true;
+                        }
+                    });
+                    return true;
+
+                case Utilities.KEY_SHOW_SEARCHBAR :
+                    mSearchBar = preference;
+                    mSearchBar.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                         public boolean onPreferenceChange(Preference preference, Object newValue) {
                             LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                             return true;
