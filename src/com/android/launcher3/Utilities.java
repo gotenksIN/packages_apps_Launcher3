@@ -137,6 +137,7 @@ public final class Utilities {
 
     public static final String KEY_SHOW_SEARCHBAR = "pref_show_quickspace";
 
+    public static final String SEARCH_PACKAGE = "com.google.android.googlequicksearchbox";
     /**
      * Indicates if the device has a debug build. Should only be used to store additional info or
      * add extra logging and not for changing the app behavior.
@@ -731,6 +732,9 @@ public final class Utilities {
 
     public static boolean showQSB(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
+        if (!LauncherAppState.getInstanceNoCreate().isSearchAppAvailable()) {
+            return false;
+        }
         return prefs.getBoolean(KEY_SHOW_SEARCHBAR, true);
     }
 }
