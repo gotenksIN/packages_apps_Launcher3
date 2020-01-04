@@ -135,7 +135,7 @@ public final class Utilities {
     public static final String ICON_SIZE = "pref_custom_icon_size";
     public static final String FONT_SIZE = "pref_custom_font_size";
 
-    public static final String KEY_SHOW_SEARCHBAR = "pref_show_searchbar";
+    public static final String KEY_SHOW_SEARCHBAR = "pref_show_quickspace";
 
     /**
      * Indicates if the device has a debug build. Should only be used to store additional info or
