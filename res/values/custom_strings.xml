@@ -90,4 +90,8 @@
     <string name="smartspace_preferences">Preferences</string>
     <string name="show_quickspace_title">At A Glance</string>
     <string name="show_quickspace_summary">Show at the top of your Home screen</string>
+
+    <!-- Show dock search widget -->
+    <string name="dock_search_title">Google search bar</string>
+    <string name="dock_search_summary">Show a search bar at the bottom of your Home screen</string>
 </resources>

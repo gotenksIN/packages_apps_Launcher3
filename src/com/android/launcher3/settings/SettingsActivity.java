@@ -170,6 +170,7 @@ public class SettingsActivity extends FragmentActivity
 
         private Preference mShowGoogleAppPref;
         private Preference mSearchBar;
+        private Preference mShowDocksearch;
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -326,6 +327,16 @@ public class SettingsActivity extends FragmentActivity
                 case Utilities.KEY_SHOW_SEARCHBAR :
                     mSearchBar = preference;
                     mSearchBar.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                        public boolean onPreferenceChange(Preference preference, Object newValue) {
+                            LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+                            return true;
+                        }
+                    });
+                    return true;
+
+                case Utilities.KEY_DOCK_SEARCH:
+                    mShowDocksearch = preference;
+                    mShowDocksearch.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                         public boolean onPreferenceChange(Preference preference, Object newValue) {
                             LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                             return true;
