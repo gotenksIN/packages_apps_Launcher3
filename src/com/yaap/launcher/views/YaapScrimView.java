@@ -179,8 +179,9 @@ public class YaapScrimView extends ScrimView {
                             (float) mMidAlpha, mAfterMidProgressColorInterpolator));
             mShelfColor = setColorAlphaBound(mEndScrim, alpha);
 
-            int remainingScrimAlpha = Math.round(
-                    Utilities.mapToRange(mProgress, (float) 0, mMidProgress, mMaxScrimAlpha,
+            int remainingScrimAlpha = mMaxScrimAlpha == 0
+                    ? 0
+                    : Math.round(Utilities.mapToRange(mProgress, (float) 0, mMidProgress, mMaxScrimAlpha,
                             (float) 0, LINEAR));
             mRemainingScreenColor = setColorAlphaBound(mScrimColor, remainingScrimAlpha);
         }
