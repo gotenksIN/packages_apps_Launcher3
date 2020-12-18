@@ -23,12 +23,14 @@ import static com.android.launcher3.anim.Interpolators.LINEAR;
 import static com.android.launcher3.icons.GraphicsUtils.setColorAlphaBound;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
 import android.graphics.Path.Op;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -147,7 +149,9 @@ public class YaapScrimView extends ScrimView {
             return;
         }
 
-        mDragHandleOffset = mShelfOffset - mDragHandleSize;
+        if (mProgress < mDragHandleProgress) {
+            mDragHandleOffset = mShiftRange * (mDragHandleProgress - mProgress);
+        }
         if (mProgress >= SCRIM_CATCHUP_THRESHOLD) {
             mShelfTop = mShiftRange * mProgress + mTopOffset;
         } else {
