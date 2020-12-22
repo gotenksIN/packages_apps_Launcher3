@@ -29,9 +29,9 @@
     <dimen name="chip_text_size">14sp</dimen>
 
     <dimen name="all_apps_prediction_row_divider_height">17dp</dimen>
-    <dimen name="all_apps_label_top_padding">16dp</dimen>
-    <dimen name="all_apps_label_bottom_padding">8dp</dimen>
-    <dimen name="all_apps_label_text_size">14sp</dimen>
+    <dimen name="all_apps_label_top_padding">8dp</dimen>
+    <dimen name="all_apps_label_bottom_padding">16dp</dimen>
+    <dimen name="all_apps_label_text_size">13sp</dimen>
 
     <!-- Minimum distance to swipe to trigger accessibility gesture -->
     <dimen name="accessibility_gesture_min_swipe_distance">80dp</dimen>
