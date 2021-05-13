@@ -437,7 +437,7 @@ public class ScrimView<T extends Launcher> extends View implements Insettable, O
     }
 
     protected boolean shouldDragHandleBeVisible() {
-        return false;
+        return mLauncher.getDeviceProfile().isVerticalBarLayout() || mAM.isEnabled();
     }
 
     @Override
